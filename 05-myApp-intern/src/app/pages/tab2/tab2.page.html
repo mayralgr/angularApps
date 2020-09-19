@@ -1,0 +1,29 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="dark">
+    <ion-title>
+      Completados
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark" [fullscreen]="true">
+  <!-- <app-listas></app-listas> -->
+  <ion-list *ngIf="deseosService.listas" color="dark">
+    <ion-item-sliding *ngFor="let lista of deseosService.listas"  >
+      <ion-item detail (click)="listaSeleccionada( lista )">
+        <ion-label>
+          {{ lista.titulo }}
+        </ion-label>
+        <ion-note slot="end" color="tertiary">
+          {{ lista.items.length }} items
+        </ion-note>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="borrarLista( lista)" color="danger">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
