@@ -14,7 +14,8 @@ export class TemplateComponent implements OnInit {
     nombre: '',
     apellido: '',
     correo: '',
-    pais: '',
+    pais: 'CRI',
+    genero: 'M'
   };
 
   constructor(private paisService: PaisService) { }
@@ -22,7 +23,7 @@ export class TemplateComponent implements OnInit {
   ngOnInit(): void {
     this.paisService.getPaises().subscribe(
       paises => {
-        console.log(paises);
+        // console.log(paises);
         this.paises = paises;
 
         this.paises.unshift({
